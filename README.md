@@ -1,4 +1,4 @@
-<img src="https://github.com/LukeSlev/HackED-2019-React-App/blob/master/client/src/logostraight.png" alt="Botspotr" width="300px"/>
+<img src="https://github.com/LukeSlev/BotSpotr/blob/master/client/src/logostraight.png" alt="Botspotr" width="300px"/>
 
 The viral tweet analyzer!
 =========================
@@ -17,7 +17,7 @@ In order to use this fancy shmancy app:
 * `npm install ` to get all those dependency goodies
 * make a .env and add all the needed api keys and such
 
-If you want to try out this app just hit our url http://bptspotr.com
+If you want to try out this app just hit our url http://botspotr.com
 
 ### App Flow
 ![App Flow](https://github.com/LukeSlev/BotSpotr/blob/master/client/src/appflow.png)
