@@ -4,7 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import 'typeface-vt323';
 import 'typeface-roboto-mono';
 import 'typeface-zcool-qingke-huangyou';
-
+import Search from './search';
 
 
 const styles = theme => ({
@@ -16,16 +16,21 @@ const styles = theme => ({
   }
 });
 
-import Search from './search';
-
 
 class App extends Component {
   render() {
     return (
       <div className="App">     
-
-        <Search/>
-
+        <div className="header">
+          <h1 className="app-title">spotbot</h1>
+        </div>
+        <div className="left"></div>
+        <div className="right"></div>
+        <div className="search">
+          <Search/>
+        </div>
+        <div className="viz">
+        </div>
       </div>
     );
   }

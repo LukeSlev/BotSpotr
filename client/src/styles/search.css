@@ -1,0 +1,41 @@
+.search-container {
+    display: grid;
+   
+}
+
+.search-text {
+    background: #ffffff;
+    border-radius: 30px;
+    border: white 1px solid;
+    display: inline-block;
+    width: 500px;
+    height: 50px;
+    font-size: 20px;
+    padding-left: 20px;
+    font-family: "Roboto Mono";
+}
+
+input:focus {
+    border-radius: 30px;
+    border: #607D8B 1px solid;
+    outline: none;
+    box-shadow: 0 0 10px #607D8B;
+}
+
+.search-button {
+    border-radius: 30px;
+    width: 100px;
+    height: 30px;
+    background: #2C5364;
+    border: #2C5364;
+    color: white;
+    display: inline-block;
+    margin: -50px;
+    font-family: "VT323", monospace;
+    font-size: 15px;
+}
+
+form {
+    position: relative;
+    width: 100%;
+}

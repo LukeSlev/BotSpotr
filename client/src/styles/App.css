@@ -1,11 +1,36 @@
 .App {
   text-align: center;
+  display: grid;
+  grid-template-areas:
+  'header header header header header'
+  'left search search search right'
+  'left viz viz viz right';
+  grid-gap: 10px;
+  padding: 10px;
+  margin-top: 50px;
 }
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 40vmin;
 }
+
+.header { grid-area: header; }
+.left { grid-area: left; }
+.right { grid-area: right; }
+.search { grid-area: search; }
+.viz { 
+  grid-area: viz; 
+  min-width: 700px;
+  min-height: 500px;
+  }
+
+.app-title {
+  /*font-family: 'ZCOOL QingKe HuangYou', cursive;*/
+  font-family: 'VT323', monospace;
+  color: #78909C;
+}
+
 
 .App-header {
   background-color: #282c34;
@@ -31,6 +56,7 @@ body {
 h1 {
   /*font-family: 'ZCOOL QingKe HuangYou', cursive;*/
   font-family: 'VT323', monospace;
+  font-size: 50px;
 }
 
 @keyframes App-logo-spin {

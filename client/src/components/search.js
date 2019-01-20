@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-
+import '../styles/search.css';
 const axios = require('axios');
+
+
 
 class Search extends Component {
   constructor(props) {
@@ -28,13 +30,12 @@ class Search extends Component {
 
   render() {
     return (
-      <div className="Search">
+      <div className="search-container">
         <form onSubmit={this.handleSubmit}>
           <label>
-            Yeeteth:
-            <input type="text" value={this.state.value} onChange={this.onTextChange} />
+            <input className="search-text" type="text" value={this.state.value} onChange={this.onTextChange} />
           </label>
-          <input type="submit" value="Submit" />
+          <input className="search-button" type="submit" value="Verify Tweet" />
         </form>
       </div>
     );
