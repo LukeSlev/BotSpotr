@@ -15,6 +15,6 @@ Our app is comprised of a React.js front end and a node and express.js powered b
 ![App Flow](https://github.com/LukeSlev/HackED-2019-React-App/blob/master/client/src/appflow.png)
 
 #### Authors
-* Zach Drever
-* Luke Slevinsky
-* Gillian Pierce
+* [Zach Drever](https://github.com/zdrever)
+* [Luke Slevinsky](https://github.com/LukeSlev)
+* [Gillian Pierce](https://github.com/gillianpierce)
