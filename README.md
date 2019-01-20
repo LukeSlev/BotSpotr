@@ -5,7 +5,7 @@ The viral tweet analyzer!
 
 ### Use Case
 <p>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-You've probably heard about the whole 'Fake-News' epidemic that's been taking over the United States political climate. Turns out that around 15% of Twitter users are said to be automated bot accounts. In the 2016 US election researchers estimated pro-Trump bots generated 4 tweets to every 1 pro-Clinton Tweet! This may make you think - how do you know if popular tweets are actually popular? How can you trust what's going on your favourite social media platform??
+You've probably heard about the whole 'Fake-News' epidemic that's been taking over the United States political climate. Turns out that around 15% of Twitter users are said to be automated bot accounts. During the 2016 US election, researchers estimated pro-Trump bots generated 4 tweets to every 1 pro-Clinton Tweet! This may make you think - how do you know if popular tweets are actually popular? How can you trust what's going on your favourite social media platform??
 <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 Well have we got an app for you! Let me introduce BotSpotr - the viral tweet analyzer! Simply give our web app the url for a tweet you want to be analyzed and we'll tell you the percentage of retweets that came from bot-like users. We take a sample set of the tweet's retweets and validate the retweeting users with the api Botometer, we then use this data to give you an idea of how organic the tweets popularity really is.
 <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
