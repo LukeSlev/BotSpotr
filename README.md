@@ -1,4 +1,4 @@
-<img src="https://github.com/LukeSlev/HackED-2019-React-App/blob/master/client/src/logostraight.png" alt="Botspotr" width="500"/>
+<img src="https://github.com/LukeSlev/HackED-2019-React-App/blob/master/client/src/logostraight.png" alt="Botspotr" width="300px"/>
 
 The viral tweet analyzer!
 =========================
