@@ -1,0 +1,7 @@
+.tooltip {
+    margin-top: 10px;
+    color: white;
+    font-family: "VT323", monospace;
+    background: #78909C;
+    border-radius: 10px;
+}
