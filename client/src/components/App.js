@@ -30,6 +30,7 @@ class App extends Component {
           <Search/>
         </div>
         <div className="viz">
+          <Viz/>
         </div>
       </div>
     );
