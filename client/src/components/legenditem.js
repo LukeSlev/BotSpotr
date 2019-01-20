@@ -9,7 +9,7 @@ const LegendItem = ({color, caption, count}) => {
                 <circle cx="25" cy="25" r="20" stroke={color} strokeWidth="3" fill={color}></circle>
                 <text x="50%" y="50%" textAnchor="middle" stroke="white" fill="white" strokeWidth="1px" dy=".3em">{count}</text>
             </svg>
-            <div className="caption"><p>{caption}</p></div>
+            <div className="caption"><h5>{caption}</h5></div>
         </div>
     );
 
