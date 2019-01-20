@@ -19,6 +19,7 @@
     "typeface-zcool-qingke-huangyou": "0.0.71",
     "axios": "^0.18.0"
   },
+  "proxy": "localhost:5000",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
