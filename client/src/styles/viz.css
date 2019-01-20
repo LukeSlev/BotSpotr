@@ -1,0 +1,13 @@
+.legend-item-container {
+    text-align: center;
+    display: grid;
+    grid-template-areas:
+    'bot human';
+    grid-gap: 10px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.bot {grid-area: bot}
+
+.human {grid-area: human}

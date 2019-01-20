@@ -21,16 +21,16 @@ const styles = theme => ({
 
 class App extends Component {
   setTweetUrl = (tweetId) => {
-    this.setState({tweetId: tweetId});
+    this.setState({tweetId: tweetId, vizVisible: true});
   }
 
-  state = {tweetId: 'no tweet id yet'};
+  state = {tweetId: 'no tweet id yet', vizVisible: false};
 
   render() {
     return (
       <div className="App">   
         <div className="header">
-          <h1 className="app-title">spotbot</h1>
+          <h1 className="app-title">botspotr</h1>
         </div>
         <div className="left"></div>
         <div className="right"></div>
@@ -41,7 +41,7 @@ class App extends Component {
           <EmbedTweet tweetId={this.state.tweetId}/>
         </div>
         <div className="viz">
-          <Viz/>
+          <Viz visible={this.state.vizVisible}/>
         </div>
       </div>
     );

@@ -4,8 +4,8 @@
   grid-template-areas:
   'header header header header header'
   'left search search search right'
-  'left tweet tweet tweet right'
-  'left viz viz viz right';
+  'tweet tweet viz viz viz'
+  'tweet tweet  viz viz viz';
   grid-gap: 10px;
   padding: 10px;
   margin-top: 50px;
@@ -19,12 +19,13 @@
 .header { grid-area: header; }
 .left { grid-area: left; }
 .right { grid-area: right; }
-.tweet { grid-area: tweet;}
+.tweet { grid-area: tweet;
+    margin-top: 30px;}
 .search { grid-area: search; }
 .viz { 
   grid-area: viz; 
-  min-width: 700px;
-  min-height: 500px;
+  margin-top: 30px;
+  max-width: 400px;
   }
 
 .app-title {
