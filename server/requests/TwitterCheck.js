@@ -1,6 +1,6 @@
 const Twitter = require('twitter');
 const request = require('request-promise');
-const bot = require('./BotCheck');
+const bot = require('./BotCheck')
 require('dotenv').config();
 
 var client;

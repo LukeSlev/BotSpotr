@@ -13,6 +13,6 @@ export function receiveData(data) {
 }
 
 export function subscribeToTimer(cb) {
-  socket.on('timer', data => cb(null, data));
+  socket.on('dataUpdated', data => cb(null, data));
   socket.emit('subscribeToTimer', 1000);
 }

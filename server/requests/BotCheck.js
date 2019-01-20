@@ -1,40 +1,43 @@
 var request = require('request-promise');
+var io = require('socket.io-client');
+const  socket = io.connect("http://localhost:5000");
 
 require('dotenv').config();
 
-var humans = 0;
-var bots = 0;
-
+var data = {}
+data.bots = 0;
+data.humans = 0;
 
 module.exports = {
     checkUser : function(payload){
-                    console.log("sName:"+JSON.parse(payload).user.screen_name);
-                    var options = {
-                        uri: "https://botometer-pro.p.mashape.com/2/check_account",
-                        method: 'POST',
-                        headers: {
-                            "X-Mashape-Key": process.env.BOTAPIKEY,
-                            "Content-Type": 'application/json',
-                            "Accept": "application/json",
-                        },
-                        body: payload
-                    }
+        console.log("sName:"+JSON.parse(payload).user.screen_name);
+        var options = {
+            uri: "https://botometer-pro.p.mashape.com/2/check_account",
+            method: 'POST',
+            headers: {
+                "X-Mashape-Key": process.env.BOTAPIKEY,
+                "Content-Type": 'application/json',
+                "Accept": "application/json",
+            },
+            body: payload
+        }
 
-                    return request(options)
-                        .then(function(response){
-                            var score = JSON.parse(response).scores.english;
-                            if (score > 0.7){
-                                bots++;
-                                console.log("bots:"+bots);
-                            } else{
-                                humans++;
-                                console.log("humano:"+humans);
-                            }
-                            console.log(JSON.parse(response).scores.english);
-                            return JSON.parse(response);
-                        })
-                        .catch(function(err) {
-                            console.log("BotOrNot POST failed "+ err);
-                        });
-                    }
+        return request(options)
+            .then(function(response){
+                var score = JSON.parse(response).scores.english;
+                if (score > 0.7){
+                    data.bots++;
+                    console.log("bots:"+data.bots);
+                } else{
+                    data.humans++;
+                    console.log("humano:"+data.humans);
+                }
+                console.log(JSON.parse(response).scores.english);
+                socket.emit('updateData', data);
+                return JSON.parse(response);
+            })
+            .catch(function(err) {
+                console.log("BotOrNot POST failed "+ err);
+            });
+        }
 }
