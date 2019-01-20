@@ -12,6 +12,7 @@ socket.on('clearData', () => {
     console.log("clearData");
     data.bots = 0;
     data.humans = 0;
+    socket.emit('updateData', data);
 });
 
 module.exports = {

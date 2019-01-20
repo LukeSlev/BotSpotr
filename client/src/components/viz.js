@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {subscribeToTimer, clearData} from '../actions/index';
+import {subscribeToTimer} from '../actions/index';
 import PieChart from 'react-minimal-pie-chart';
 import LegendItem from './legenditem';
 
