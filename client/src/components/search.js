@@ -18,6 +18,8 @@ class Search extends Component {
   handleSubmit = (e) => {
     alert("A name was submitted: " + this.state.query);
     e.preventDefault();
+    var id = this.state.query.substring(this.state.query.lastIndexOf('/') + 1);
+    this.props.setTweetUrl(id);
 
     axios.post(`/search`, {
         url: this.state.query,
