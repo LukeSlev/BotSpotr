@@ -1,12 +1,9 @@
-const Twitter = require('twitter');
 const request = require('request-promise');
-require('dotenv').config();
+require("dotenv").config();
 
-var tok;
 
 module.exports = {
-
-  auth : function (){
+  auth: function () {
     let consKey = process.env.TWITTER_CONSUMER_KEY;
     let consSecret = process.env.TWITTER_CONSUMER_SECRET_KEY;
 
@@ -25,37 +22,10 @@ module.exports = {
     request(options)
           .then((parseResp) => {
               //do something
-              tok =  JSON.parse(parseResp).access_token;
+              return JSON.parse(parseResp).access_token;
           })
           .catch(function(err) {
               console.log("OAuth Twitter POST failed "+ err);
           });
   }
 }
-
-function getRetweeters(payload){
-  var client = new Twitter({
-    consumer_key: process.env.TWITTER_CONSUMER_KEY,
-    consumer_secret: process.env.TWITTER_CONSUMER_SECRET_KEY,
-    bearer_token: tok,
-  });
-
-  var setBearerToken = (bt) => {
-    this.setBearerToken = bt;
-  }
-
-  Twitter.prototype.setBearerToken = setBearerToken;
-
-  client.get('search/tweets', {q: 'node.js'}, function(error, tweets, response) {
-    if (!error) {
-      console.log("error " + error);
-    }
-    console.log(tweets);
- });
-}
-
-function main() {
-  getRetweeters("helplo");
-}
-
-main();
