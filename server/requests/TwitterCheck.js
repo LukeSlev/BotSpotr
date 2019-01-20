@@ -100,7 +100,7 @@ module.exports = {
 
         })
       } else {
-        alert("you big dummy");
+        alert("The most unfortunate thing just happened :/");
       }
    });
   }

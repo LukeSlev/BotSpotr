@@ -16,7 +16,6 @@ class Search extends Component {
   }
 
   handleSubmit = (e) => {
-    alert("A name was submitted: " + this.state.query);
     clearData();
     e.preventDefault();
     var id = this.state.query.substring(this.state.query.lastIndexOf('/') + 1);
