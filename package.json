@@ -5,6 +5,7 @@
   "dependencies": {
     "@material-ui/core": "^3.9.0",
     "body-parser": "^1.18.3",
+    "dotenv": "^6.2.0",
     "eslint-plugin-react": "^7.12.4",
     "express": "^4.16.4",
     "nodemon": "^1.18.9",

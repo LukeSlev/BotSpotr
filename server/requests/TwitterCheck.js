@@ -1,7 +1,8 @@
-var request = require('request-promise');
+const axios = require('axios');
 require('dotenv').config();
 
-function checkUser(payload){
+
+function getRetweeters(payload){
     var options = {
         method: 'POST',
         url: URL,
@@ -13,7 +14,7 @@ function checkUser(payload){
         body: payload
     }
 
-    request(options)
+    axios.get(options)
         .then(function(parseResp){
             //do something
         })
