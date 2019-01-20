@@ -1,6 +1,7 @@
 const Twitter = require('twitter');
 const request = require('request-promise');
 const bot = require('./BotCheck')
+const _ = require('lodash');
 require('dotenv').config();
 
 var client;
@@ -52,18 +53,16 @@ module.exports = {
     });
 
     var rtoptions = {
-      count: 10,
+      count: 100,
       id: payload,
       stringify_ids: true,
-      cursor:Math.floor((Math.random() * 500) + 1),
     }
-    console.log("cursor:"+rtoptions.cursor);
 
     appClient.get('statuses/retweeters/ids.json', rtoptions , function(error, tweets, response) {
       if (!error) {
-        var t = Object.keys(tweets).map(function(k){return tweets[k]}).join(",");
-
-        appClient.post("https://api.twitter.com/1.1/users/lookup.json",{user_id: t} , function(error, users, response) {
+        var retweeters = Object.keys(tweets).map(function(k){return tweets[k]}).join(",");
+        sample = _.sampleSize(retweeters.split(','), 13);
+        appClient.post("https://api.twitter.com/1.1/users/lookup.json",{user_id: sample.join(',')} , function(error, users, response) {
           users.forEach(async function(element){
             var temp = {};
             // BotOrNot()

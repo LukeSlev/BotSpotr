@@ -19,14 +19,13 @@ class Viz extends Component {
 		return (
             <div>
             <div className="legend-item-container">
-                <LegendItem className="bot" color='#b0bec5' caption="Bots" count={this.state.data[0].value} />
-                <LegendItem className="human" color='#607d8b' caption="Humans" count = {this.state.data[1].value} />
+                <LegendItem className="bot" color='#b0bec5' caption="Bots" count={Math.round(100 * this.state.data[0].value/(this.state.data[0].value + this.state.data[1].value)) || 0} />
+                <LegendItem className="human" color='#607d8b' caption="Humans" count = {Math.round(100 * this.state.data[1].value/(this.state.data[0].value + this.state.data[1].value)) || 0} />
             </div>
             <PieChart
             data={this.state.data}
             startAngle={180}
             lengthAngle={180}
-            animate
             />
             </div>
         );
