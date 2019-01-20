@@ -15,7 +15,8 @@
     "request-promise": "^4.2.2",
     "typeface-roboto-mono": "0.0.54",
     "typeface-vt323": "0.0.54",
-    "typeface-zcool-qingke-huangyou": "0.0.71"
+    "typeface-zcool-qingke-huangyou": "0.0.71",
+    "axios": "^0.18.0"
   },
   "scripts": {
     "start": "react-scripts start",
