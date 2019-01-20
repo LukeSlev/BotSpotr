@@ -1,0 +1,5 @@
+.tweet-container {
+    align-items: center;
+    display: inline-block;
+    max-width:400px;
+}

@@ -14,9 +14,9 @@ io.on('connection', (client) => {
     var botCount = 0;
     var humanCount = 0;
     setInterval(() => {
-      botCount++;
-      humanCount++;
-      client.emit('timer', {'botCount': botCount, 'humanCount': humanCount});
+      botCount = Math.floor((Math.random() * 100) + 1);;
+      humanCount = Math.floor((Math.random() * 100) + 1);;
+      client.emit('timer', [{title:'Bot Count', value: botCount, color: '#b0bec5'}, {title:'Human Count', value: humanCount, color: '#607d8b'}]);
     }, interval);
   });
 });
