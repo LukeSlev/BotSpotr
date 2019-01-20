@@ -1,24 +1,19 @@
 const axios = require('axios');
+const Twitter = require('twitter');
 require('dotenv').config();
 
 
 function getRetweeters(payload){
-    var options = {
-        method: 'POST',
-        url: URL,
-        headers: {
-            "X-Mashape-Key": process.env.BOTKEY,
-            "Content-Type": 'application/json',
-            "Accept": "application/json",
-        },
-        body: payload
-    }
+  var client = new Twitter({
+    consumer_key: process.env.TWITTER_CONSUMER_KEY,
+    consumer_secret: process.env.TWITTER_CONSUMER_SECRET_KEY,
+    bearer_token: process.env.TWITTER_BEARER_TOKEN
+  });
 
-    axios.get(options)
-        .then(function(parseResp){
-            //do something
-        })
-        .catch(function(err) {
-            console.log("Post BotOrNot POST failed "+ err);
-        });
+  var params = {screen_name: 'nodejs'};
+  client.get('statuses/user_timeline', params, function(error, tweets, response) {
+    if (!error) {
+      console.log(tweets);
+    }
+  });
 }
