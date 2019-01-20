@@ -16,12 +16,25 @@
   height: 40vmin;
 }
 
-.header { grid-area: header; }
+.header { grid-area: header; 
+    display: grid;
+    width:500px;
+    height:150px;
+    margin-left: auto;
+    margin-right: auto;
+    background-size:cover; 
+    background-position:center center; 
+    background-repeat:no-repeat; 
+    background-image:url('../logostraight.png');
+}
+
 .left { grid-area: left; }
 .right { grid-area: right; }
 .tweet { grid-area: tweet;
     margin-top: 30px;}
-.search { grid-area: search; }
+.search { grid-area: search; 
+  margin-right: auto;
+  margin-left: auto;}
 .viz { 
   grid-area: viz; 
   margin-top: 30px;

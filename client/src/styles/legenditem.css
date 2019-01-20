@@ -12,8 +12,9 @@
     grid-area: caption;
 }
 
-p {
+h5 {
     color: white;
+    font-family: "VT323", monospace;
 }
 
 .circle {
