@@ -1,8 +1,9 @@
 const Twitter = require('twitter');
 const request = require('request-promise');
+const bot = require('./BotCheck');
 require('dotenv').config();
 
-
+var client;
 
 function auth(){
   let consKey = process.env.TWITTER_CONSUMER_KEY;
@@ -32,28 +33,74 @@ function auth(){
 
 
 module.exports = {
+
   getRetweeters : async function(payload){
+    let results = [];
     var tok = await auth();
 
-    var client = new Twitter({
+    var userClient = new Twitter({
+      consumer_key: process.env.TWITTER_CONSUMER_KEY,
+      consumer_secret: process.env.TWITTER_CONSUMER_SECRET_KEY,
+      access_token_key: process.env.TWITTER_ACCESS_KEY,
+      access_token_secret:process.env.TWITTER_ACCESS_SECRET_KEY,
+    });
+
+    var appClient = new Twitter({
       consumer_key: process.env.TWITTER_CONSUMER_KEY,
       consumer_secret: process.env.TWITTER_CONSUMER_SECRET_KEY,
       bearer_token: tok,
     });
 
-    var options = {
-      count: 10,
+    var rtoptions = {
+      count: 50,
       id: payload,
       stringify_ids: true,
+      cursor:Math.floor((Math.random() * 500) + 1),
     }
-    client.get('statuses/retweeters/ids.json', options , function(error, tweets, response) {
+
+    appClient.get('statuses/retweeters/ids.json', rtoptions , function(error, tweets, response) {
       if (!error) {
-        // JSON.parse(parseResp).access_token;
-        // for ()
+        var t = Object.keys(tweets).map(function(k){return tweets[k]}).join(",");
+
+        appClient.post("https://api.twitter.com/1.1/users/lookup.json",{user_id: t} , function(error, users, response) {
+          users.forEach(async function(element){
+            var temp = {};
+            // BotOrNot()
+            temp.user = element;
+            var timelineOptions = {
+              user_id: element.user_id,
+              screen_name: element.screen_name,
+              count:60,
+              include_rts:true,
+            }
+
+            var mentionsOptions = {
+              q: "@"+element.screen_name,
+              count:40,
+            }
+
+            console.log("screen_name " +element.screen_name);
+            appClient.get("https://api.twitter.com/1.1/statuses/user_timeline.json",timelineOptions).then(function(timeline){
+              // console.log("timeline"+JSON.stringify(timeline));
+              // console.log(timeline);
+              temp.timeline = timeline;
+              userClient.get("https://api.twitter.com/1.1/search/tweets.json",mentionsOptions).then(function(mentions){
+                // console.log("mention"+JSON.stringify(mentions));
+                temp.mentions = mentions;
+                // console.log(JSON.stringify(temp));
+
+                bot.checkUser(JSON.stringify(temp));
+
+              });
+            });
+
+
+          });
+
+        })
+      } else {
+        alert("you big dummy");
       }
-      tweets.ids.forEach(element => {
-        console.log(element);
-      });
    });
   }
 }

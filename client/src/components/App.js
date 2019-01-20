@@ -28,7 +28,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">   
+      <div className="App">
         <div className="header">
           <h1 className="app-title">botspotr</h1>
         </div>

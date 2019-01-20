@@ -39,14 +39,4 @@ app.post('/search',function(req,res){
   twitter.getRetweeters(id);
 });
 
-// app.post('/search',function(req,res){
-//   var url=req.body.url;
-//   console.log("search twitter url: "+url);
-// });
-// app.listen(process.env.PORT,function(){
-//   console.log("Started on PORT 5000");
-// })
-
-server.listen(5000, () => {console.log("Started on PORT 5000");})
-
-
+server.listen(process.env.PORT, () => {console.log("Started on PORT" + process.env.PORT);})
