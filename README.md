@@ -11,7 +11,7 @@ Well have we got an app for you! Let me introduce BotSpotr - the viral tweet ana
 Our app is comprised of a React.js front end and a node and express.js powered back end! We use the Twitter search and tweet apis along with a special Twitter account validator api called Botometer, to gather our tweet and user account data.</p>
 
 ###App Flow
-![App Flow](https://github.com/LukeSlev/HackED-2019-React-App/blob/master/src/appflow.png)
+![App Flow](https://github.com/LukeSlev/HackED-2019-React-App/blob/master/client/src/appflow.png)
 
 #### Authors
 * Zach Drever
