@@ -8,7 +8,7 @@ const axios = require('axios');
 class Search extends Component {
   constructor(props) {
     super(props);
-    this.state = {query: '', tooltipVisible: false};
+    this.state = {query: '', tooltipVisible: false, showTooltipFunc: this.showTooltip, hideTooltipFunc: this.hideTooltip};
   }
 
   onTextChange = (e) => {
@@ -21,6 +21,9 @@ class Search extends Component {
     var id = this.state.query.substring(this.state.query.lastIndexOf('/') + 1);
     this.props.setTweetUrl(id);
 
+    this.setState({showTooltipFunc: ()=>{}, hideTooltipFunc: ()=> {}, tooltipVisible: false});
+    
+
     axios.post(`/search`, {
         url: this.state.query,
       })
@@ -28,6 +31,7 @@ class Search extends Component {
         console.log(res);
         console.log(res.data);
       })
+
   }
 
   showTooltip = (e) => {
@@ -43,14 +47,14 @@ class Search extends Component {
 
   render() {
     return (
-      <div className="search-container" onMouseEnter={this.showTooltip} onMouseLeave={this.hideTooltip}>
+      <div className="search-container" onMouseEnter={this.state.showTooltipFunc} onMouseLeave={this.state.hideTooltipFunc}>
         <form onSubmit={this.handleSubmit}>
           <label>
             <input className="search-text" type="text" value={this.state.value} onChange={this.onTextChange} />
           </label>
           <input className="search-button" type="submit" value="Verify Tweet" />
         </form>
-        <Tooltip visible={this.state.tooltipVisible} text="Enter the url of a tweet whos hype you'd like to verify" />
+        <Tooltip visible={this.state.tooltipVisible} text="Enter the url of a tweet whose hype you'd like to verify" />
       </div>
     );
   }
