@@ -3,16 +3,16 @@
     display: grid;
     grid-template-areas:
     'circle caption';
-    grid-gap: 10px;
+    grid-gap: 5px;
     padding: 10px;
-    margin-top: 10px;
+    margin: auto;
 }
 
 .caption {
     grid-area: caption;
 }
 
-h5 {
+h3 {
     color: white;
     font-family: "VT323", monospace;
 }
