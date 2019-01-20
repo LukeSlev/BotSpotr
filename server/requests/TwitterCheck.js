@@ -1,5 +1,6 @@
 const Twitter = require('twitter');
 const request = require('request-promise');
+const bot = require('./BotCheck');
 require('dotenv').config();
 
 var client;
@@ -30,10 +31,9 @@ function auth(){
         });
 }
 
-var temp = {};
 
 module.exports = {
-  
+
   getRetweeters : async function(payload){
     let results = [];
     var tok = await auth();
@@ -52,10 +52,10 @@ module.exports = {
     });
 
     var rtoptions = {
-      count: 1,
+      count: 50,
       id: payload,
       stringify_ids: true,
-      cursor:100,
+      cursor:Math.floor((Math.random() * 500) + 1),
     }
 
     appClient.get('statuses/retweeters/ids.json', rtoptions , function(error, tweets, response) {
@@ -64,21 +64,22 @@ module.exports = {
 
         appClient.post("https://api.twitter.com/1.1/users/lookup.json",{user_id: t} , function(error, users, response) {
           users.forEach(async function(element){
+            var temp = {};
             // BotOrNot()
             temp.user = element;
             var timelineOptions = {
               user_id: element.user_id,
               screen_name: element.screen_name,
-              count:1,
+              count:60,
               include_rts:true,
             }
 
             var mentionsOptions = {
               q: "@"+element.screen_name,
-              count:1,
+              count:40,
             }
 
-            // console.log("id " +element.id);
+            console.log("screen_name " +element.screen_name);
             appClient.get("https://api.twitter.com/1.1/statuses/user_timeline.json",timelineOptions).then(function(timeline){
               // console.log("timeline"+JSON.stringify(timeline));
               // console.log(timeline);
@@ -86,11 +87,14 @@ module.exports = {
               userClient.get("https://api.twitter.com/1.1/search/tweets.json",mentionsOptions).then(function(mentions){
                 // console.log("mention"+JSON.stringify(mentions));
                 temp.mentions = mentions;
-                console.log(JSON.stringify(temp));
+                // console.log(JSON.stringify(temp));
+
+                bot.checkUser(JSON.stringify(temp));
+
               });
             });
-            
-            
+
+
           });
 
         })
