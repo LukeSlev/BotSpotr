@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {subscribeToTimer} from '../actions/index';
+import {subscribeToTimer, clearData} from '../actions/index';
 import PieChart from 'react-minimal-pie-chart';
 import LegendItem from './legenditem';
 
@@ -8,10 +8,7 @@ class Viz extends Component {
         super(props);
         subscribeToTimer((err, data) => this.setState({ data }));
     }
-
     state = {data: [{title:'Bot Count', value: 0, color: '#b0bec5'}, {title:'Human Count', value: 0, color: '#607d8b'}]};
-
-
 
       render() {
         if (!this.props.visible){

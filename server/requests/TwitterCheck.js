@@ -57,6 +57,7 @@ module.exports = {
       stringify_ids: true,
       cursor:Math.floor((Math.random() * 500) + 1),
     }
+    console.log("cursor:"+rtoptions.cursor);
 
     appClient.get('statuses/retweeters/ids.json', rtoptions , function(error, tweets, response) {
       if (!error) {

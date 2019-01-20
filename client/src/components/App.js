@@ -8,7 +8,6 @@ import Search from './search';
 import Viz from './viz';
 import EmbedTweet from './tweet';
 
-
 const styles = theme => ({
   root: {
     flexGrow: 1,

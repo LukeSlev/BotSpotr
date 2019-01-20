@@ -8,6 +8,12 @@ var data = {}
 data.bots = 0;
 data.humans = 0;
 
+socket.on('clearData', () => {
+    console.log("clearData");
+    data.bots = 0;
+    data.humans = 0;
+});
+
 module.exports = {
     checkUser : function(payload){
         console.log("sName:"+JSON.parse(payload).user.screen_name);

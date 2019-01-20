@@ -17,6 +17,9 @@ io.on('connection', (client) => {
     console.log("Updating counts");
     io.emit('dataUpdated', [{title:'Bot Count', value: data.bots, color: '#b0bec5'}, {title:'Human Count', value: data.humans, color: '#607d8b'}]);
   });
+  client.on('clearData', ()=> {
+    io.emit('clearData');
+  });
 });
 
 
