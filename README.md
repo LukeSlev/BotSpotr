@@ -1,5 +1,5 @@
 <img src="https://github.com/LukeSlev/HackED-2019-React-App/blob/master/client/src/logostraight.png" alt="Botspotr" width="500"/>
-##The viral tweet analyzer!
+## The viral tweet analyzer!
 ===========================
 
 ### Use Case
