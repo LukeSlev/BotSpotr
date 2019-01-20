@@ -16,11 +16,16 @@ const styles = theme => ({
   }
 });
 
+import Search from './search';
+
+
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <SearchContainer/>        
+      <div className="App">     
+
+        <Search/>
+
       </div>
     );
   }
