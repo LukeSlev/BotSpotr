@@ -23,12 +23,12 @@ function checkUser(payload){
         });
 }
 
-function main(){
-    console.log(process.env.BOTORNOTAPI);
-    checkUser(process.env.TEST_PAYLOAD)
-        .then(function(response){
-            console.log(response);
-        })
-}
+// function main(){
+//     console.log(process.env.BOTORNOTAPI);
+//     checkUser(process.env.TEST_PAYLOAD)
+//         .then(function(response){
+//             console.log(response);
+//         })
+// }
 
-main();
+// main();

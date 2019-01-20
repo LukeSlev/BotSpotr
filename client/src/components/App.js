@@ -20,7 +20,7 @@ const styles = theme => ({
 class App extends Component {
   render() {
     return (
-      <div className="App">     
+      <div className="App">
         <div className="header">
           <h1 className="app-title">spotbot</h1>
         </div>
@@ -30,7 +30,7 @@ class App extends Component {
           <Search/>
         </div>
         <div className="viz">
-          <Viz/>
+          {/* <Viz/> */}
         </div>
       </div>
     );
