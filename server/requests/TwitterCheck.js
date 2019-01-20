@@ -1,4 +1,3 @@
-const BotOrNot = require( '../BotOrNot.js');
 const Twitter = require('twitter');
 const request = require('request-promise');
 require('dotenv').config();
@@ -31,58 +30,67 @@ function auth(){
         });
 }
 
+var temp = {};
+
 module.exports = {
+  
   getRetweeters : async function(payload){
     let results = [];
-    var temp = {};
-    // var tok = await auth();
+    var tok = await auth();
 
-    var client = new Twitter({
+    var userClient = new Twitter({
       consumer_key: process.env.TWITTER_CONSUMER_KEY,
       consumer_secret: process.env.TWITTER_CONSUMER_SECRET_KEY,
       access_token_key: process.env.TWITTER_ACCESS_KEY,
       access_token_secret:process.env.TWITTER_ACCESS_SECRET_KEY,
-      // bearer_token: tok,
+    });
+
+    var appClient = new Twitter({
+      consumer_key: process.env.TWITTER_CONSUMER_KEY,
+      consumer_secret: process.env.TWITTER_CONSUMER_SECRET_KEY,
+      bearer_token: tok,
     });
 
     var rtoptions = {
-      count: 10,
+      count: 1,
       id: payload,
       stringify_ids: true,
       cursor:100,
     }
 
-    client.get('statuses/retweeters/ids.json', rtoptions , function(error, tweets, response) {
+    appClient.get('statuses/retweeters/ids.json', rtoptions , function(error, tweets, response) {
       if (!error) {
         var t = Object.keys(tweets).map(function(k){return tweets[k]}).join(",");
 
-        client.post("https://api.twitter.com/1.1/users/lookup.json",{user_id: t} , function(error, users, response) {
-          users.forEach(element => {
+        appClient.post("https://api.twitter.com/1.1/users/lookup.json",{user_id: t} , function(error, users, response) {
+          users.forEach(async function(element){
             // BotOrNot()
             temp.user = element;
             var timelineOptions = {
               user_id: element.user_id,
               screen_name: element.screen_name,
-              count:200,
+              count:1,
               include_rts:true,
             }
 
             var mentionsOptions = {
-              q: element.screen_name,
-              count:100,
+              q: "@"+element.screen_name,
+              count:1,
             }
-            console.log(element.scree);
-            console.log("id " +element.id);
-            client.get("https://api.twitter.com/1.1/statuses/user_timeline.json",timelineOptions, function(error, timeline, response) {
-              // console.log("timeline"+JSON.stringify(timeline));
-              console.log(timeline);
-              temp.timeline= timeline;
-            });
-            client.get("https://api.twitter.com/1.1/statuses/mentions_timeline.json",mentionsOptions, function(error, mentions, response) {
-              console.log("mention"+JSON.stringify(mentions));
-              temp.mentions= mentions;
-            });
 
+            // console.log("id " +element.id);
+            appClient.get("https://api.twitter.com/1.1/statuses/user_timeline.json",timelineOptions).then(function(timeline){
+              // console.log("timeline"+JSON.stringify(timeline));
+              // console.log(timeline);
+              temp.timeline = timeline;
+              userClient.get("https://api.twitter.com/1.1/search/tweets.json",mentionsOptions).then(function(mentions){
+                // console.log("mention"+JSON.stringify(mentions));
+                temp.mentions = mentions;
+                console.log(JSON.stringify(temp));
+              });
+            });
+            
+            
           });
 
         })
