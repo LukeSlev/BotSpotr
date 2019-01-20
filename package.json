@@ -6,6 +6,7 @@
     "@material-ui/core": "^3.9.0",
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
+    "canvasjs": "^1.8.1",
     "dotenv": "^6.2.0",
     "eslint-plugin-react": "^7.12.4",
     "express": "^4.16.4",
@@ -17,8 +18,7 @@
     "request-promise": "^4.2.2",
     "typeface-roboto-mono": "0.0.54",
     "typeface-vt323": "0.0.54",
-    "typeface-zcool-qingke-huangyou": "0.0.71",
-    "axios": "^0.18.0"
+    "typeface-zcool-qingke-huangyou": "0.0.71"
   },
   "scripts": {
     "start": "react-scripts start",
