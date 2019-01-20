@@ -20,7 +20,7 @@ In order to use this fancy shmancy app:
 If you want to try out this app just hit our url http://bptspotr.com
 
 ### App Flow
-![App Flow](https://github.com/LukeSlev/HackED-2019-React-App/blob/master/client/src/appflow.png)
+![App Flow](https://github.com/LukeSlev/BotSpotr/blob/master/client/src/appflow.png)
 
 #### Authors
 * [Zach Drever](https://github.com/zdrever)
