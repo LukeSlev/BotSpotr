@@ -1,23 +1,34 @@
 var request = require('request-promise');
-require('dotenv').config();
+
+require('dotenv').config({path:'../../.env'});
 
 function checkUser(payload){
     var options = {
+        uri: "https://botometer-pro.p.mashape.com/2/check_account",
         method: 'POST',
-        url: URL,
         headers: {
-            "X-Mashape-Key": process.env.BOTKEY,
+            "X-Mashape-Key": process.env.BOTORNOTAPI,
             "Content-Type": 'application/json',
             "Accept": "application/json",
         },
         body: payload
     }
 
-    request(options)
-        .then(function(parseResp){
-            //do something
+    return request(options)
+        .then(function(response){
+            return JSON.parse(response);
         })
         .catch(function(err) {
-            console.log("Post BotOrNot POST failed "+ err);
+            console.log("BotOrNot POST failed "+ err);
         });
 }
+
+function main(){
+    console.log(process.env.BOTORNOTAPI);
+    checkUser(process.env.TEST_PAYLOAD)
+        .then(function(response){
+            console.log(response);
+        })
+}
+
+main();
