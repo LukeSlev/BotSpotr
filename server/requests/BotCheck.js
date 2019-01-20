@@ -30,7 +30,7 @@ module.exports = {
                                 humans++;
                                 console.log("humano:"+humans);
                             }
-                            console.losg(JSON.parse(response).scores.english);
+                            console.log(JSON.parse(response).scores.english);
                             return JSON.parse(response);
                         })
                         .catch(function(err) {

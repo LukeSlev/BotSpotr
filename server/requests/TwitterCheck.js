@@ -52,7 +52,7 @@ module.exports = {
     });
 
     var rtoptions = {
-      count: 50,
+      count: 10,
       id: payload,
       stringify_ids: true,
       cursor:Math.floor((Math.random() * 500) + 1),
