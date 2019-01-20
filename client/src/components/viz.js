@@ -8,10 +8,7 @@ class Viz extends Component {
         super(props);
         subscribeToTimer((err, data) => this.setState({ data }));
     }
-
-    state = {data: []};
-
-
+    state = {data: [{title:'Bot Count', value: 0, color: '#b0bec5'}, {title:'Human Count', value: 0, color: '#607d8b'}]};
 
       render() {
         if (!this.props.visible){

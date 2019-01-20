@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import '../styles/search.css';
 import Tooltip from './tooltip'
+import {clearData} from '../actions/index';
 const axios = require('axios');
-
 
 
 class Search extends Component {
@@ -16,7 +16,7 @@ class Search extends Component {
   }
 
   handleSubmit = (e) => {
-    alert("A name was submitted: " + this.state.query);
+    clearData();
     e.preventDefault();
     var id = this.state.query.substring(this.state.query.lastIndexOf('/') + 1);
     this.props.setTweetUrl(id);

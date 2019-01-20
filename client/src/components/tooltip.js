@@ -2,7 +2,7 @@ import React from "react";
 import '../styles/tooltip.css'
 
 const Tooltip = ({visible, text}) => {
-    console.log("visible: ", visible);
+    // console.log("visible: ", visible);
     if(visible) {
         return (
             <div className="tooltip">

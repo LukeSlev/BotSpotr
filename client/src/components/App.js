@@ -7,8 +7,6 @@ import 'typeface-zcool-qingke-huangyou';
 import Search from './search';
 import Viz from './viz';
 import EmbedTweet from './tweet';
-//import logo from '../logo.png';
-//import logosmooth from '../logosmooth.png';
 
 const styles = theme => ({
   root: {
@@ -29,7 +27,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">   
+      <div className="App">
         <div className="header">
         </div>
         <div className="left"></div>
