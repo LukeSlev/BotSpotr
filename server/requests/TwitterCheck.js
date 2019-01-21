@@ -4,7 +4,6 @@ const bot = require('./BotCheck')
 const _ = require('lodash');
 require('dotenv').config();
 
-var client;
 
 function auth(){
   let consKey = process.env.TWITTER_CONSUMER_KEY;
@@ -99,7 +98,7 @@ module.exports = {
 
         })
       } else {
-        alert("The most unfortunate thing just happened :/");
+        console.log("The most unfortunate thing just happened :/");
       }
    });
   }
