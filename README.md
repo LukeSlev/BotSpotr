@@ -16,6 +16,9 @@ In order to use this fancy shmancy app:
 * Clone the repo
 * `npm install ` to get all those dependency goodies
 * make a .env and add all the needed api keys and such
+  * You need to add a `BOTAPIKEY`, an express server `PORT`, and a few Twitter api keys: `TWITTER_CONSUMER_KEY`, `TWITTER_CONSUMER_SECRET_KEY`, `TWITTER_ACCESS_KEY`, `TWITTER_ACCESS_SECRET_KEY`
+  * links to relevent material are here: https://github.com/motdotla/dotenv and https://developer.twitter.com/en/apps
+* to start the app locally once you have all the necessary environmental variables set up you run `npm run client` in one terminal window and `npm run server` in another terminal window :)
 
 If you want to try out this app just hit our url http://botspotr.com
 
