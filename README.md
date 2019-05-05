@@ -20,7 +20,7 @@ In order to use this fancy shmancy app:
   * links to relevent material are here: https://github.com/motdotla/dotenv and https://developer.twitter.com/en/apps
 * to start the app locally once you have all the necessary environmental variables set up you run `npm run client` in one terminal window and `npm run server` in another terminal window :)
 
-If you want to try out this app just hit our url http://botspotr.com
+If you want to try out this app just hit our url http://botspotr.com or http://35.233.147.52/
 
 ### App Flow
 ![App Flow](https://github.com/LukeSlev/BotSpotr/blob/master/client/src/appflow.png)
